@@ -40,7 +40,16 @@ public class NuPack {
 		Scanner sc1=new Scanner(System.in);
 		String input_string = sc1.nextLine();
 		sc1.close();
+		//remove all spaces
+		input_string = input_string.replace(" ","");
+		//remove the first comma from the price
+		input_string = input_string.replaceFirst(",","");
 		
+		String price = null, person = null, category = null;
+		String[] temp = input_string.split(","); 
+	    	price = temp[0];
+	    	person = temp[1];
+	    	category = temp[2];
 		System.out.println("" + markup_pricing(price, person, category));
 	}
 
