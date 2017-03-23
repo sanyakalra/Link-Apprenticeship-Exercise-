@@ -1,2 +1,3 @@
 # Link-Apprenticeship-Exercise-
-I am starting to work on it and will finish it by tonight
+It takes the input as price, number of people and category.
+Price entered must have a ",".
