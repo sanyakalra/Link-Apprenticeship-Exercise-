@@ -13,20 +13,20 @@ public class NuPack {
 		//for people 1.2% each
 		people = people.substring(0,people.indexOf("p"));
 		int price_people = Integer.parseInt(people);
-		double personmp = ((base_price*price_people*1.2)/100);
+		double personmp = ((base_mp_price*price_people*1.2)/100);
 		
 		double categorymp;
 		if(category.equals("pharmaceuticals") || category.equals("drugs") || category.equals("medicines"))
 		{
-			categorymp=((base_price*7.5)/100);
+			categorymp=((base_mp_price*7.5)/100);
 		}
 		else if(category.equals("food"))
 		{
-			categorymp=((base_price*13)/100);
+			categorymp=((base_mp_price*13)/100);
 		}
 		else if(category.equals("electronics"))
 		{
-			categorymp=((base_price*2)/100);
+			categorymp=((base_mp_price*2)/100);
 		}
 		else
 		{
