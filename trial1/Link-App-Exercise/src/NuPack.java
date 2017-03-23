@@ -5,8 +5,8 @@ public class NuPack {
 	
 	public static double markup_pricing(String price, String people, String category)
 	{
-		String job_price = price.replace("$","");
-		double base_price = Double.parseDouble(job_price);
+		
+		double base_price = Double.parseDouble(price);
 		//flat mark up 5% each
 		double base_mp_price = ((base_price*5)/100)+base_price;
 		
@@ -42,6 +42,7 @@ public class NuPack {
 	    while(true)
 	    {
 			System.out.println("Enter the price(include ,),number of people required for the job and cateory");
+			System.out.println("Format eg: $1,299.99, 3 people, food");
 			Scanner sc1=new Scanner(System.in);
 			String input_string = sc1.nextLine();
 			System.out.println("Enter the quantity to be repackaged");
@@ -56,18 +57,18 @@ public class NuPack {
 			String price = null, person = null, category = null;
 			try
 			{
-				String[] temp = input_string.split(","); 
-				price = temp[0];
+			    String[] temp = input_string.split(","); 
+			    price = temp[0];
 			    person = temp[1];
 			    category = temp[2];
+			    price = price.replace("$","");
 			    System.out.println("" + quantity_calc(markup_pricing(price, person, category),quant));
 			    sc1.close();
 			    break;
 			}
 			catch(Exception e)
 			{
-				
-				System.out.println("Please enter a price with ,");
+				System.out.println("Please enter a valid input");
 				continue;
 			}
 	  }
