@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class NuPack {
 	
-	public static double markup_pricing(String job, String people, String category)
+	public static double markup_pricing(String price, String people, String category)
 	{
-		String newjob = job.replace("$","");
-		double base_price = Double.parseDouble(newjob);
+		String job_price = price.replace("$","");
+		double base_price = Double.parseDouble(job_price);
 		//flat mark up 5% each
 		double base_mp_price = ((base_price*5)/100)+base_price;
 		
