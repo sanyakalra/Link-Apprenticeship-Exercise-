@@ -34,23 +34,44 @@ public class NuPack {
 		}
 		return base_mp_price + personmp + categorymp;
 	}
+	public static double quantity_calc(double price, int quantity){
+		return quantity * price;
+	}
 	public static void main(String args[])
 	{
+	    while(true)
+	    {
+			System.out.println("Enter the price(include ,),number of people required for the job and cateory");
+			Scanner sc1=new Scanner(System.in);
+			String input_string = sc1.nextLine();
+			System.out.println("Enter the quantity to be repackaged");
+			int quant;
+			quant = sc1.nextInt();
+			
+			//remove all spaces
+			input_string = input_string.replace(" ","");
+			//remove the first comma from the price
+			input_string = input_string.replaceFirst(",","");
+			
+			String price = null, person = null, category = null;
+			try
+			{
+				String[] temp = input_string.split(","); 
+				price = temp[0];
+			    person = temp[1];
+			    category = temp[2];
+			    System.out.println("" + quantity_calc(markup_pricing(price, person, category),quant));
+			    sc1.close();
+			    break;
+			}
+			catch(Exception e)
+			{
+				
+				System.out.println("Please enter a price with ,");
+				continue;
+			}
+	  }
 		
-		Scanner sc1=new Scanner(System.in);
-		String input_string = sc1.nextLine();
-		sc1.close();
-		//remove all spaces
-		input_string = input_string.replace(" ","");
-		//remove the first comma from the price
-		input_string = input_string.replaceFirst(",","");
-		
-		String price = null, person = null, category = null;
-		String[] temp = input_string.split(","); 
-	    	price = temp[0];
-	    	person = temp[1];
-	    	category = temp[2];
-		System.out.println("" + markup_pricing(price, person, category));
 	}
 
 }
